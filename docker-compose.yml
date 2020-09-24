@@ -19,4 +19,6 @@ services:
       - graphite
     volumes:
       - "${CONTAINER_VOLUME_BASEDIR}/grafana/lib:/var/lib/grafana"
+      - "./grafana/provisioning:/etc/grafana/provisioning"
+
 
