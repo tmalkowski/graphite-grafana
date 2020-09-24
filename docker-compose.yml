@@ -1,0 +1,22 @@
+version: '3'
+services:
+  graphite:
+    image: graphiteapp/graphite-statsd
+    ports:
+      - 127.0.0.1:3080:80
+      - 127.0.0.1:2003:2003
+    expose:
+      - 80
+      - 2003
+    volumes:
+      - "${CONTAINER_VOLUME_BASEDIR}/graphite/conf:/opt/graphite/conf"
+      - "${CONTAINER_VOLUME_BASEDIR}/graphite/storage:/opt/graphite/storage"
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 127.0.0.1:3081:3000
+    depends_on:
+      - graphite
+    volumes:
+      - "${CONTAINER_VOLUME_BASEDIR}/grafana/lib:/var/lib/grafana"
+
