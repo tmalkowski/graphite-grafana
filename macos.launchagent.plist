@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>KeepAlive</key>
+    <true/>
+    <key>Label</key>
+    <string>docker-container.graphite-grafana</string>
+    <key>WorkingDirectory</key>
+    <string><!-- path to this repo --></string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>CONTAINER_VOLUME_BASEDIR</key>
+        <string>$HOME/Library/Docker/Volumes</string>
+    </dict>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/bin/docker-compose</string>
+      <string>up</string>
+      <string>--build</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/usr/local/var/log/docker-graphite-grafana.log</string>
+    <key>StandardOutPath</key>
+    <string>/usr/local/var/log/docker-graphite-grafana.log</string>
+  </dict>
+</plist>
